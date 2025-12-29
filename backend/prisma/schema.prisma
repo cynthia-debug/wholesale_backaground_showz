@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// User model - for authentication and user management
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  phone     String?
+  company   String?
+  role      Role     @default(USER)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+// Product model - local cache for ERP products (optional storage)
+model Product {
+  id                  Int       @id @default(autoincrement())
+  sku                 String    @unique
+  name                String
+  retailPrice         Decimal   @map("retail_price") @db.Decimal(10, 2)
+  wholesalePricePaypal    Decimal   @map("wholesale_price_paypal") @db.Decimal(10, 2)
+  wholesalePriceBankWire  Decimal   @map("wholesale_price_bank_wire") @db.Decimal(10, 2)
+  status              String    // "presale" or "in_stock"
+  cutOffDate          DateTime? @map("cut_off_date")
+  quantityPerCarton   Int?      @map("quantity_per_carton")
+  boxSize             String?   @map("box_size")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+
+  @@map("products")
+}
+
+// Order model - local cache for ERP orders
+model Order {
+  id             Int         @id @default(autoincrement())
+  orderNumber    String      @unique @map("order_number")
+  userEmail      String      @map("user_email")  // Match with user by email
+  status         String      @default("pending")
+  shipmentDate   DateTime?   @map("shipment_date")
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt @map("updated_at")
+  
+  // Order contains multiple product lines
+  orderLines     OrderLine[]
+
+  @@map("orders")
+}
+
+// OrderLine model - each order can have multiple product lines
+model OrderLine {
+  id             Int      @id @default(autoincrement())
+  orderId        Int      @map("order_id")
+  sku            String
+  quantity       Int
+  trackingNumber String?  @map("tracking_number")
+  shippedAt      DateTime? @map("shipped_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+  
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("order_lines")
+}

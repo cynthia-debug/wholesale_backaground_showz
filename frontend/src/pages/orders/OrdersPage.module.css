@@ -1,0 +1,129 @@
+.container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  color: var(--text-primary) !important;
+  margin-bottom: 4px !important;
+}
+
+.subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.searchInput {
+  width: 280px;
+  height: 42px;
+  border-radius: 10px !important;
+}
+
+.searchIcon {
+  color: var(--text-secondary);
+}
+
+.tableCard {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.table :global(.ant-table-thead > tr > th) {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.orderNumber {
+  color: var(--text-primary) !important;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.skuText {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary-color) !important;
+  font-size: 13px;
+}
+
+.quantityText {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.statusTag {
+  border: none;
+  font-weight: 500;
+}
+
+.trackingText {
+  font-family: 'JetBrains Mono', monospace;
+  color: #10b981 !important;
+  font-size: 12px;
+}
+
+.pendingTag {
+  font-size: 11px;
+}
+
+.dateText {
+  color: var(--text-secondary) !important;
+}
+
+.itemCount {
+  color: var(--text-secondary) !important;
+}
+
+.expandIcon {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.expandIconRotated {
+  transform: rotate(180deg);
+}
+
+.expandedRow {
+  padding: 16px;
+  background: var(--bg-dark);
+  border-radius: 8px;
+}
+
+.orderLinesTitle {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--text-primary) !important;
+}
+
+.orderLinesTable {
+  background: var(--bg-card) !important;
+  border-radius: 8px;
+}
+
+.orderLinesTable :global(.ant-table-thead > tr > th) {
+  font-size: 11px !important;
+  padding: 8px 12px !important;
+}
+
+.orderLinesTable :global(.ant-table-tbody > tr > td) {
+  padding: 8px 12px !important;
+}

@@ -1,0 +1,101 @@
+.container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  color: var(--text-primary) !important;
+  margin-bottom: 4px !important;
+}
+
+.subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.addButton {
+  height: 42px;
+  border-radius: 10px !important;
+  font-weight: 600;
+}
+
+.tableCard {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.table :global(.ant-table-thead > tr > th) {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.emailText {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary-color) !important;
+  font-size: 13px;
+}
+
+.nameText {
+  color: var(--text-primary) !important;
+}
+
+.companyText {
+  color: var(--text-secondary) !important;
+}
+
+.roleTag {
+  border: none;
+  font-weight: 500;
+}
+
+.dateText {
+  color: var(--text-secondary) !important;
+}
+
+.deleteButton {
+  font-weight: 500;
+}
+
+.currentUser {
+  color: var(--text-secondary) !important;
+  font-style: italic;
+}
+
+.modal :global(.ant-modal-content) {
+  border-radius: 16px !important;
+}
+
+.modalNote {
+  background: rgba(0, 102, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 12px;
+}
+

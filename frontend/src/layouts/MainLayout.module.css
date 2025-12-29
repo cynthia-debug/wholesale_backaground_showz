@@ -1,0 +1,158 @@
+.layout {
+  min-height: 100vh;
+}
+
+.sider {
+  background: linear-gradient(180deg, #0d1320 0%, #111827 100%) !important;
+  border-right: 1px solid var(--border-color);
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 100;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+}
+
+.logoIcon {
+  color: var(--primary-color);
+  font-size: 24px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.logoIconOnly {
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.menu {
+  border-right: none !important;
+}
+
+.menu :global(.ant-menu-item) {
+  margin: 4px 12px;
+  border-radius: 8px;
+  height: 44px;
+  line-height: 44px;
+}
+
+.menu :global(.ant-menu-item:hover) {
+  background: rgba(0, 102, 255, 0.1) !important;
+}
+
+.menu :global(.ant-menu-item-selected) {
+  background: var(--primary-color) !important;
+}
+
+.header {
+  background: var(--bg-dark) !important;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 260px;
+  z-index: 99;
+  transition: left 0.2s;
+}
+
+.layout :global(.ant-layout-sider-collapsed) + :global(.ant-layout) .header {
+  left: 80px;
+}
+
+.trigger {
+  color: var(--text-secondary) !important;
+  font-size: 18px;
+}
+
+.trigger:hover {
+  color: var(--text-primary) !important;
+  background: rgba(0, 102, 255, 0.1) !important;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.userInfo:hover {
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.avatar {
+  background: var(--accent-gradient) !important;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.userName {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.userRole {
+  color: var(--text-secondary) !important;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.content {
+  margin-left: 260px;
+  margin-top: 64px;
+  padding: 24px;
+  min-height: calc(100vh - 64px);
+  background: var(--bg-dark);
+  transition: margin-left 0.2s;
+}
+
+.layout :global(.ant-layout-sider-collapsed) + :global(.ant-layout) .content {
+  margin-left: 80px;
+}
+

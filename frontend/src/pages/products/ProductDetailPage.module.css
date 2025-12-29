@@ -1,0 +1,98 @@
+.container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.backButton {
+  margin-bottom: 24px;
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.backButton:hover {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.card {
+  border-radius: 16px !important;
+}
+
+.header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.statusTag {
+  border: none;
+  font-weight: 500;
+}
+
+.skuText {
+  color: var(--text-secondary) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.descriptions :global(.ant-descriptions-item-label) {
+  width: 180px;
+}
+
+.monoText {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary-color) !important;
+}
+
+.priceText {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-secondary) !important;
+}
+
+.wholesalePrice {
+  font-family: 'JetBrains Mono', monospace;
+  color: #10b981 !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.wholesalePriceBankWire {
+  font-family: 'JetBrains Mono', monospace;
+  color: #3b82f6 !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.errorCard {
+  text-align: center;
+  padding: 48px;
+  border-radius: 16px !important;
+}
+
+.errorText {
+  color: var(--text-secondary) !important;
+  font-size: 16px;
+}
